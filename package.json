@@ -10,9 +10,9 @@
     "slicemachine": "start-slicemachine"
   },
   "dependencies": {
-    "@prismicio/client": "^7.3.1",
+    "@prismicio/client": "^7.4.1",
     "@prismicio/next": "^1.5.0",
-    "@prismicio/react": "^2.7.3",
+    "@prismicio/react": "^2.7.4",
     "@react-three/drei": "^9.89.0",
     "@react-three/fiber": "^8.15.11",
     "@types/three": "^0.158.3",
@@ -25,7 +25,7 @@
     "three": "^0.158.0"
   },
   "devDependencies": {
-    "@slicemachine/adapter-next": "^0.3.27",
+    "@slicemachine/adapter-next": "^0.3.38",
     "@tailwindcss/typography": "^0.5.10",
     "@types/node": "^20",
     "@types/react": "^18",
@@ -36,7 +36,7 @@
     "postcss": "^8",
     "prettier": "^3.1.0",
     "prettier-plugin-tailwindcss": "^0.5.7",
-    "slice-machine-ui": "^1.21.1",
+    "slice-machine-ui": "^1.26.0",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }

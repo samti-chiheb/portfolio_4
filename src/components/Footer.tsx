@@ -27,7 +27,7 @@ export default async function Footer() {
             /
           </span>
           <p className=" text-sm text-slate-300 ">
-            © {new Date().getFullYear()} {settings.data.name}
+            © {new Date().getFullYear()} Made with ❤️ by {settings.data.name}
           </p>
         </div>
         <nav className="navigation" aria-label="Footer Navigation">

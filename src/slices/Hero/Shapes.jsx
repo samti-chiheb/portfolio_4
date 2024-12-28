@@ -2,13 +2,17 @@
 
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
-import { ContactShadows, Float, Environment } from "@react-three/drei";
+import {
+  ContactShadows,
+  Float,
+  Environment,
+} from "@react-three/drei";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
 export function Shapes() {
   return (
-    <div className="row-span-1 row-start-1 -mt-9 aspect-square  md:col-span-1 md:col-start-2 md:mt-0">
+    <div className="row-span-1 row-start-1  aspect-square  md:col-span-1 md:col-start-2 md:mt-0">
       <Canvas
         className="z-0"
         shadows
@@ -19,7 +23,7 @@ export function Shapes() {
         <Suspense fallback={null}>
           <Geometries />
           <ContactShadows
-            position={[0, -3.5, 0]}
+            position={[0, -5, 0]}
             opacity={0.65}
             scale={40}
             blur={1}
@@ -34,10 +38,15 @@ export function Shapes() {
 
 function Geometries() {
   const geometries = [
+    // {
+    //   position: [0, 0, 0],
+    //   r: 0.3,
+    //   geometry: new THREE.IcosahedronGeometry(3), // Gem
+    // },
     {
       position: [0, 0, 0],
       r: 0.3,
-      geometry: new THREE.IcosahedronGeometry(3), // Gem
+      geometry: new THREE.TorusKnotGeometry(1.5, 1.1, 500, 30, 10), // Radius, tube radius, radial segments, tubular segments
     },
     {
       position: [1, -0.75, 4],
@@ -117,7 +126,7 @@ function Geometry({ r, position, geometry, soundEffects, materials }) {
       x: `+=${gsap.utils.random(0, 2)}`,
       y: `+=${gsap.utils.random(0, 2)}`,
       z: `+=${gsap.utils.random(0, 2)}`,
-      duration: 1.3,
+      duration: 2,
       ease: "elastic.out(1,0.3)",
       yoyo: true,
     });
@@ -150,7 +159,7 @@ function Geometry({ r, position, geometry, soundEffects, materials }) {
 
   return (
     <group position={position} ref={meshRef}>
-      <Float speed={5 * r} rotationIntensity={6 * r} floatIntensity={5 * r}>
+      <Float speed={4 * r} rotationIntensity={14 * r} floatIntensity={15 * r}>
         <mesh
           geometry={geometry}
           onClick={handleClick}

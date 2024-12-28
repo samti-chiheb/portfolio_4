@@ -50,6 +50,30 @@
             "placeholder": "",
             "select": null
           }
+        },
+        "show_button_2": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Button 2",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
+        "button_text_2": {
+          "type": "Text",
+          "config": {
+            "label": "Button Text 2",
+            "placeholder": ""
+          }
+        },
+        "button_link_2": {
+          "type": "Link",
+          "config": {
+            "label": "Button Link 2",
+            "placeholder": "",
+            "select": null
+          }
         }
       },
       "items": {}

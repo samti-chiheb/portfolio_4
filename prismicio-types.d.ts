@@ -551,6 +551,37 @@ export interface BiographySliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   button_link: prismic.LinkField;
+
+  /**
+   * Show Button 2 field in *Biography → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: biography.primary.show_button_2
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_button_2: prismic.BooleanField;
+
+  /**
+   * Button Text 2 field in *Biography → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: biography.primary.button_text_2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text_2: prismic.KeyTextField;
+
+  /**
+   * Button Link 2 field in *Biography → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: biography.primary.button_link_2
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link_2: prismic.LinkField;
 }
 
 /**

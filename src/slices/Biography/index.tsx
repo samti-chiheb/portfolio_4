@@ -28,10 +28,18 @@ const Biography = ({ slice }: BiographyProps): JSX.Element => {
         <div className="prose prose-xl prose-slate prose-invert col-start-1">
           <PrismicRichText field={slice.primary.body} />
         </div>
-        <Button
-          linkField={slice.primary.button_link}
-          label={slice.primary.button_text}
-        />
+        <div className="flex items-center justify-start gap-6">
+          <Button
+            linkField={slice.primary.button_link}
+            label={slice.primary.button_text}
+          />
+          {slice.primary.show_button_2 && (
+            <Button
+              linkField={slice.primary.button_link_2}
+              label={slice.primary.button_text_2}
+            />
+          )}
+        </div>
 
         <Avatar
           image={slice.primary.avatar}

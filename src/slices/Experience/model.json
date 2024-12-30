@@ -28,10 +28,17 @@
             "placeholder": ""
           }
         },
-        "time_period": {
-          "type": "Text",
+        "start_date": {
+          "type": "Timestamp",
           "config": {
-            "label": "Time Period",
+            "label": "Start Date",
+            "placeholder": ""
+          }
+        },
+        "end_date": {
+          "type": "Timestamp",
+          "config": {
+            "label": "End Date",
             "placeholder": ""
           }
         },

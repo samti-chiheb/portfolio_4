@@ -34,6 +34,30 @@
           "thumbnails": []
         }
       },
+      "github_link": {
+        "type": "Link",
+        "config": {
+          "label": "Github Link",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "live_link": {
+        "type": "Link",
+        "config": {
+          "label": "Live Link",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "youtube_link": {
+        "type": "Link",
+        "config": {
+          "label": "Youtube Link",
+          "placeholder": "",
+          "select": null
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

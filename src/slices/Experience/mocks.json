@@ -22,14 +22,6 @@
 						}
 					],
 					[
-						"time_period",
-						{
-							"__TYPE__": "FieldContent",
-							"type": "Text",
-							"value": "2019 - Present"
-						}
-					],
-					[
 						"institution",
 						{
 							"__TYPE__": "FieldContent",
@@ -51,6 +43,22 @@
 									"direction": "ltr"
 								}
 							]
+						}
+					],
+					[
+						"start_date",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Timestamp",
+							"value": "2013-12-10T11:00:47Z"
+						}
+					],
+					[
+						"end_date",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Timestamp",
+							"value": "2015-06-28T08:10:46Z"
 						}
 					]
 				]
@@ -67,14 +75,6 @@
 						}
 					],
 					[
-						"time_period",
-						{
-							"__TYPE__": "FieldContent",
-							"type": "Text",
-							"value": "2019 - Present"
-						}
-					],
-					[
 						"institution",
 						{
 							"__TYPE__": "FieldContent",
@@ -96,6 +96,22 @@
 									"direction": "ltr"
 								}
 							]
+						}
+					],
+					[
+						"start_date",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Timestamp",
+							"value": "2022-10-29T02:24:10Z"
+						}
+					],
+					[
+						"end_date",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Timestamp",
+							"value": "2018-04-22T18:32:46Z"
 						}
 					]
 				]

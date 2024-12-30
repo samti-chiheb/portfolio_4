@@ -279,6 +279,39 @@ interface ProjectDocumentData {
   image: prismic.ImageField<never>;
 
   /**
+   * Github Link field in *Project*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.github_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  github_link: prismic.LinkField;
+
+  /**
+   * Live Link field in *Project*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.live_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  live_link: prismic.LinkField;
+
+  /**
+   * Youtube Link field in *Project*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.youtube_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  youtube_link: prismic.LinkField;
+
+  /**
    * Slice Zone field in *Project*
    *
    * - **Field Type**: Slice Zone
@@ -730,14 +763,24 @@ export interface ExperienceSliceDefaultItem {
   title: prismic.KeyTextField;
 
   /**
-   * Time Period field in *Experience → Items*
+   * Start Date field in *Experience → Items*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Timestamp
    * - **Placeholder**: *None*
-   * - **API ID Path**: experience.items[].time_period
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **API ID Path**: experience.items[].start_date
+   * - **Documentation**: https://prismic.io/docs/field#timestamp
    */
-  time_period: prismic.KeyTextField;
+  start_date: prismic.TimestampField;
+
+  /**
+   * End Date field in *Experience → Items*
+   *
+   * - **Field Type**: Timestamp
+   * - **Placeholder**: *None*
+   * - **API ID Path**: experience.items[].end_date
+   * - **Documentation**: https://prismic.io/docs/field#timestamp
+   */
+  end_date: prismic.TimestampField;
 
   /**
    * Institution field in *Experience → Items*

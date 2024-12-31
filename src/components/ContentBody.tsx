@@ -31,7 +31,7 @@ export default function ContentBody({
             {formattedDate}
           </p>
           <div className=" flex justify-center">
-            {isFilled.link(page.data.youtube_link) && (
+            {'youtube_link' in page.data && isFilled.link(page.data.youtube_link) && (
               <PrismicNextLink
                 field={page.data.youtube_link}
                 className="p-2 text-2xl text-slate-300 transition-all duration-150 hover:scale-125 hover:text-yellow-400"
@@ -42,7 +42,7 @@ export default function ContentBody({
                 <FaYoutube />
               </PrismicNextLink>
             )}
-            {isFilled.link(page.data.github_link) && (
+            {'github_link' in page.data && isFilled.link(page.data.github_link) && (
               <PrismicNextLink
                 field={page.data.github_link}
                 className="p-2 text-2xl text-slate-300 transition-all duration-150 hover:scale-125 hover:text-yellow-400"
@@ -53,7 +53,7 @@ export default function ContentBody({
                 <FaGithub />
               </PrismicNextLink>
             )}
-            {isFilled.link(page.data.live_link) && (
+            {"live_link" in page.data && isFilled.link(page.data.live_link) && (
               <PrismicNextLink
                 field={page.data.live_link}
                 className="p-2 text-2xl text-slate-300 transition-all duration-150 hover:scale-125 hover:text-yellow-400"

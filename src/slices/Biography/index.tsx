@@ -32,6 +32,8 @@ const Biography = ({ slice }: BiographyProps): JSX.Element => {
           <Button
             linkField={slice.primary.button_link}
             label={slice.primary.button_text}
+            rel="noopener noreferrer"
+            target="_blank"
           />
           {slice.primary.show_button_2 && (
             <Button

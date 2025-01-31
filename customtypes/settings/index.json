@@ -74,6 +74,14 @@
           "placeholder": "",
           "select": null
         }
+      },
+      "favicon": {
+        "type": "Image",
+        "config": {
+          "label": "favicon",
+          "constraint": {},
+          "thumbnails": []
+        }
       }
     },
     "Metadata": {

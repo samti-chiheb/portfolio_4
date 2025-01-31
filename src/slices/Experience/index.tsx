@@ -28,15 +28,20 @@ const Experience = ({ slice }: ExperienceProps): JSX.Element => {
             {item.institution ? ` - ${item.institution}` : ""}
           </Heading>
 
-          <div className="mt-1 flex w-fit items-center gap-1 text-2xl font-semibold tracking-tight text-slate-400">
+          <div className="mt-1 flex w-fit items-center gap-1 text-2xl font-semibold capitalize tracking-tight text-slate-400">
             <span>
-              {formatMonthYear(item.start_date)} -{" "}
-              {formatMonthYear(item.end_date)}
+              {formatMonthYear(item.start_date)}{" "}
+              {item.end_date
+                ? ` - ${formatMonthYear(item.end_date)}`
+                : " - ( Aujourd'hui )"}
             </span>
-            <span className="text-xl">{` ( ${calculateDateDifference(
-              item.start_date,
-              item.end_date,
-            )} )`}</span>
+            <span className="text-xl lowercase">
+              {item.end_date &&
+                `( ${calculateDateDifference(
+                  item.start_date,
+                  item.end_date,
+                )} )`}
+            </span>
           </div>
           <div className="prose prose-lg prose-invert mt-4">
             <PrismicRichText field={item.description} />

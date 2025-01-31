@@ -13,6 +13,7 @@ const urbanist = Urbanist({ subsets: ["latin"] });
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
   const settings = await client.getSingle("settings");
+  const faviconUrl = settings.data.favicon?.url || "/favicon.svg";
 
   return {
     title: settings.data.meta_title,
@@ -20,6 +21,10 @@ export async function generateMetadata(): Promise<Metadata> {
     // openGraph: {
     //   images: [settings.data.og_image?.url || ""],
     // },
+    icons: [
+      { rel: "icon", url: faviconUrl },
+      { rel: "apple-touch-icon", url: faviconUrl },
+    ],
   };
 }
 
@@ -30,7 +35,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className="bg-slate-900 ">
-      <body className={clsx(urbanist.className, "relative min-h-screen overflow-x-hidden")}>
+      <body
+        className={clsx(
+          urbanist.className,
+          "relative min-h-screen overflow-x-hidden",
+        )}
+      >
         <Header />
         {children}
         <div className="background-gradient absolute inset-0 -z-50 max-h-screen" />

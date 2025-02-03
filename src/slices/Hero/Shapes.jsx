@@ -2,11 +2,7 @@
 
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
-import {
-  ContactShadows,
-  Float,
-  Environment,
-} from "@react-three/drei";
+import { ContactShadows, Float, Environment } from "@react-three/drei";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
@@ -158,7 +154,7 @@ function Geometry({ r, position, geometry, soundEffects, materials }) {
   }, []);
 
   return (
-    <group position={position} ref={meshRef}>
+    <group position={position} ref={meshRef} scale={[1.2, 1.2, 1.2]} >
       <Float speed={4 * r} rotationIntensity={14 * r} floatIntensity={15 * r}>
         <mesh
           geometry={geometry}

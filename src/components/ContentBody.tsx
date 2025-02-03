@@ -18,16 +18,16 @@ export default function ContentBody({
   return (
     <Bounded as="article">
       <div className="rounded-2xl border-2 border-slate-800 bg-slate-900 px-4 py-10 md:px-8 md:py-20">
-        <Heading as="h1">{page.data.title}</Heading>
-        <div className="flex flex-wrap gap-4 text-yellow-400 opacity-70 ">
+        <Heading as="h1" size="md" >{page.data.title}</Heading>
+        <div className="flex flex-wrap text-yellow-400 opacity-70 ">
           {page.tags.map((tag, index) => (
-            <span key={index} className="text-lg font-bold">
+            <span key={index} className="text-lg font-bold mr-2">
               #{tag}
             </span>
           ))}
         </div>
         <div className=" flex items-end justify-between">
-          <p className="mt-8 border-b border-slate-600 text-xl font-medium text-slate-300">
+          <p className="mt-8 border-b capitalize border-slate-600 text-lg font-medium text-slate-300 opacity-80">
             {formattedDate}
           </p>
           <div className=" flex justify-center">

@@ -22,20 +22,22 @@ const Experience = ({ slice }: ExperienceProps): JSX.Element => {
         {slice.primary.heading}
       </Heading>
       {slice.items.map((item, index) => (
-        <div key={index} className="ml-6 mt-8 max-w-prose md:ml-12 md:mt-16">
-          <Heading as="h3" size="sm">
+        <div key={index} className=" mt-8 max-w-2xl md:ml-12 md:mt-16">
+          <Heading as="h3" size="sm" className="uppercase text-yellow-300">
             {item.title}
-            {item.institution ? ` - ${item.institution}` : ""}
+          </Heading>
+          <Heading as="h4" size="xs">
+            {item.institution ? `${item.institution}` : ""}
           </Heading>
 
-          <div className="mt-1 flex w-fit items-center gap-1 text-2xl font-semibold capitalize tracking-tight text-slate-400">
-            <span>
+          <div className="mt-1 flex w-fit flex-col gap-1 text-left text-2xl font-semibold tracking-tight text-slate-400">
+            <span className="w-full capitalize">
               {formatMonthYear(item.start_date)}{" "}
               {item.end_date
                 ? ` - ${formatMonthYear(item.end_date)}`
                 : " - ( Aujourd'hui )"}
             </span>
-            <span className="text-xl lowercase">
+            <span className="w-full text-xl lowercase">
               {item.end_date &&
                 `( ${calculateDateDifference(
                   item.start_date,

@@ -4,8 +4,9 @@ import React, { useRef, useState, useEffect } from "react";
 import { asImageSrc, isFilled } from "@prismicio/client";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { MdArrowOutward } from "react-icons/md";
+import { MdArrowDownward, MdArrowOutward, MdArrowUpward } from "react-icons/md";
 import { Content } from "@prismicio/client";
+import { longFormatDate } from "@/utils/formatDate";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,6 +32,8 @@ export default function ContentList({
   const lastMousePos = useRef({ x: 0, y: 0 });
 
   const urlPrefix = contentType === "Blogs" ? "/blog" : "/project";
+
+  const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
 
   useEffect(() => {
     // Animate list-items in with a stagger
@@ -117,8 +120,8 @@ export default function ContentList({
       : fallbackItemImage;
     return asImageSrc(image, {
       fit: "crop",
-      w: 220,
-      h: 320,
+      w: 320,
+      h: 220,
       exp: -10,
     });
   });
@@ -132,17 +135,43 @@ export default function ContentList({
     });
   }, [contentImages]);
 
+  const sortedItemsByDate = [...items].sort((a, b) => {
+    const dateA = a.data.date ? new Date(a.data.date).getTime() : 0; // Default to 0 if missing
+    const dateB = b.data.date ? new Date(b.data.date).getTime() : 0;
+
+    if (!a.data.date && !b.data.date) return 0; // Keep relative order if both have no date
+    if (!a.data.date) return 1; // Move items without a date to the end
+    if (!b.data.date) return -1;
+
+    return sortOrder === "asc" ? dateA - dateB : dateB - dateA;
+  });
+
   return (
     <>
+      <div className="flex w-full justify-end  px-4 text-xl font-medium ">
+        <button
+          onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}
+          className="flex items-center gap-2  py-2 text-slate-200"
+        >
+          {sortOrder === "asc" ? (
+            <MdArrowUpward className="text-2xl" />
+          ) : (
+            <MdArrowDownward className="text-2xl" />
+          )}
+          Date
+        </button>
+      </div>
       <ul
         ref={component}
         className="grid border-b border-b-slate-100"
         onMouseLeave={onMouseLeave}
       >
-        {items.map((post, index) => (
+        {sortedItemsByDate.map((post, index) => (
           <li
             key={index}
-            ref={(el) =>{ itemsRef.current[index] = el}}
+            ref={(el) => {
+              itemsRef.current[index] = el;
+            }}
             onMouseEnter={() => onMouseEnter(index)}
             className="list-item opacity-0"
           >
@@ -161,16 +190,23 @@ export default function ContentList({
                   ))}
                 </div>
               </div>
-              <span className="ml-auto flex items-center gap-2 text-xl font-medium md:ml-0">
-                {viewMoreText} <MdArrowOutward />
-              </span>
+              <div>
+                <span className="ml-auto flex items-center gap-2 text-xl font-medium md:ml-0">
+                  {viewMoreText} <MdArrowOutward />
+                </span>
+                {post.data.date && (
+                  <span className="text-l ml-auto flex items-center gap-2 font-medium text-slate-500 md:ml-0">
+                    {longFormatDate(post.data.date)}
+                  </span>
+                )}
+              </div>
             </a>
           </li>
         ))}
 
         {/* Hover element */}
         <div
-          className="hover-reveal pointer-events-none absolute left-0 top-0 -z-10 h-[320px] w-[220px] rounded-lg bg-cover bg-center opacity-0 transition-[background] duration-300"
+          className="hover-reveal pointer-events-none absolute left-0 top-0 -z-10 h-[220px] w-[320px] rounded-lg bg-cover bg-center opacity-0 transition-[background] duration-300"
           style={{
             backgroundImage:
               currentItem !== null ? `url(${contentImages[currentItem]})` : "",
